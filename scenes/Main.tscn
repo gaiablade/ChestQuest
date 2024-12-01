@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cec603ce0libc"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Main.cs" id="1_soabt"]
+[ext_resource type="PackedScene" uid="uid://cdpi1w2lkpcn3" path="res://scenes/Overworld.tscn" id="3_mwo4p"]
+[ext_resource type="Script" path="res://scripts/GameManager.cs" id="4_0843j"]
+[ext_resource type="PackedScene" uid="uid://d2hbaneqf775k" path="res://scenes/Battle.tscn" id="4_rsgjt"]
+[ext_resource type="PackedScene" uid="uid://cjl6wmdp4g7v6" path="res://scenes/ChestsCollectedGUIComponent.tscn" id="5_tbr32"]
+
+[node name="Main" type="Node2D"]
+texture_filter = 3
+script = ExtResource("1_soabt")
+
+[node name="Game Manager" type="Node" parent="."]
+script = ExtResource("4_0843j")
+
+[node name="Overworld" parent="." instance=ExtResource("3_mwo4p")]
+
+[node name="Battle" parent="." instance=ExtResource("4_rsgjt")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ChestsCollectedGUIComponent" parent="CanvasLayer" instance=ExtResource("5_tbr32")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -48.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0

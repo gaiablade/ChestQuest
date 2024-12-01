@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjl6wmdp4g7v6"]
+
+[ext_resource type="FontFile" uid="uid://dw47n0lc4vivt" path="res://assets/packs/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="1_1x1bm"]
+[ext_resource type="Script" path="res://scenes/scripts/ChestsCollectedGuiComponent.cs" id="2_gwl3q"]
+
+[sub_resource type="Theme" id="Theme_oi2s3"]
+default_font = ExtResource("1_1x1bm")
+
+[node name="ChestsCollectedGUIComponent" type="ColorRect"]
+texture_filter = 3
+offset_right = 88.0
+offset_bottom = 48.0
+theme = SubResource("Theme_oi2s3")
+color = Color(0, 0, 0, 0.482353)
+script = ExtResource("2_gwl3q")
+
+[node name="Header Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 8.0
+offset_right = 32.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Chests"
+
+[node name="Value Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0/5"
+horizontal_alignment = 1

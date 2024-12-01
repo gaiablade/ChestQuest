@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnqdw7o5wdcfl"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Entrance.cs" id="1_gvqv3"]
+
+[node name="Entrance" type="Area2D" groups=["Entrance"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_gvqv3")
+metadata/_edit_group_ = true

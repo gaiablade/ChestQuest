@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbjocv6xgbo2b"]
+
+[ext_resource type="Script" path="res://scenes/scripts/PauseMenu.cs" id="1_lme5q"]
+[ext_resource type="FontFile" uid="uid://dw47n0lc4vivt" path="res://assets/packs/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="2_8ae2d"]
+[ext_resource type="Texture2D" uid="uid://ciblx77mcd4kr" path="res://assets/isolated/textures/icons_full_32.png" id="3_jalcx"]
+
+[sub_resource type="Theme" id="Theme_xw7q4"]
+default_font = ExtResource("2_8ae2d")
+default_font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrrq4"]
+atlas = ExtResource("3_jalcx")
+region = Rect2(128, 1152, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4p3f"]
+atlas = ExtResource("3_jalcx")
+region = Rect2(256, 64, 32, 32)
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_lme5q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xw7q4")
+color = Color(0.332133, 0.704628, 0.808373, 0.588235)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.533333)
+
+[node name="Stats Submenu" type="MarginContainer" parent="ColorRect/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer/ColorRect/Stats Submenu"]
+layout_mode = 2
+
+[node name="Stats Header Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Stats Submenu/VBoxContainer"]
+layout_mode = 2
+text = "Player Stats"
+horizontal_alignment = 1
+
+[node name="Hp Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Stats Submenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "HP: 30/30"
+
+[node name="Attack Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Stats Submenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attack: 8"
+
+[node name="Defense Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Stats Submenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Defense: 4"
+
+[node name="Speed Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect/Stats Submenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Speed: 3"
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.533333)
+
+[node name="Other Stats Submenu" type="MarginContainer" parent="ColorRect/HBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer/ColorRect2/Other Stats Submenu"]
+layout_mode = 2
+
+[node name="Other Stats Header Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect2/Other Stats Submenu/VBoxContainer"]
+layout_mode = 2
+text = "Other Stats"
+horizontal_alignment = 1
+
+[node name="Chests Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect2/Other Stats Submenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Chests: 0/??"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Equip Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Equipment"
+icon = SubResource("AtlasTexture_wrrq4")
+
+[node name="System Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "System"
+icon = SubResource("AtlasTexture_r4p3f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true

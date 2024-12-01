@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://eqtdt4rn5hu0"]
+
+[ext_resource type="Texture2D" uid="uid://cpns4agaho7bw" path="res://assets/packs/Adventurers & Adversaries 1.2/16px - native/7_MonsterA.png" id="1_dkd5b"]
+[ext_resource type="Script" path="res://types/Enemy.cs" id="1_ni70h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxbb8"]
+size = Vector2(20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edeca"]
+atlas = ExtResource("1_dkd5b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpjdu"]
+atlas = ExtResource("1_dkd5b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8km7"]
+atlas = ExtResource("1_dkd5b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyqjj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edeca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpjdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8km7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpjdu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Slime" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_ni70h")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_gxbb8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iyqjj")
+autoplay = "default"

@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2hbaneqf775k"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Battle.cs" id="1_7uunt"]
+[ext_resource type="FontFile" uid="uid://dw47n0lc4vivt" path="res://assets/packs/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="1_e2ji1"]
+[ext_resource type="PackedScene" uid="uid://b7iicihvc7gv6" path="res://scenes/BattlePlayer.tscn" id="3_43nrx"]
+
+[sub_resource type="Theme" id="Theme_jyfgp"]
+default_font = ExtResource("1_e2ji1")
+default_font_size = 16
+
+[node name="Battle" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_7uunt")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_jyfgp")
+color = Color(0, 0, 0, 0.533333)
+
+[node name="BattleOptions" type="GridContainer" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -101.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="AttackButton" type="Button" parent="Background/BattleOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attack"
+
+[node name="ItemButton" type="Button" parent="Background/BattleOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Item
+"
+
+[node name="RunButton" type="Button" parent="Background/BattleOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Run"
+
+[node name="BattleLog" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "Slime Attacked!"
+
+[node name="EnemyMarker" type="Marker2D" parent="Background"]
+position = Vector2(256, 320)
+
+[node name="BattlePlayer" parent="Background" instance=ExtResource("3_43nrx")]
+position = Vector2(896, 304)
+scale = Vector2(3, 3)
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(0.396787, 0.775939, 0.402115, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 36.0
+grow_horizontal = 0
+max_value = 1.0
+value = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label" parent="Background/PlayerHealthBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 4.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "35/35"
+horizontal_alignment = 2
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(0.396787, 0.775939, 0.402115, 1)
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 192.0
+offset_bottom = 36.0
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

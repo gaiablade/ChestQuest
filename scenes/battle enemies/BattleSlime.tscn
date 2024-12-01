@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://38je2lddk8a1"]
+
+[ext_resource type="Texture2D" uid="uid://cpns4agaho7bw" path="res://assets/packs/Adventurers & Adversaries 1.2/16px - native/7_MonsterA.png" id="1_chiib"]
+[ext_resource type="Script" path="res://scenes/battle enemies/scripts/BattleSlime.cs" id="1_y1uib"]
+[ext_resource type="Script" path="res://types/BattleStats.cs" id="2_8syof"]
+
+[sub_resource type="Resource" id="Resource_wsmx1"]
+script = ExtResource("2_8syof")
+MaxHp = 20
+Attack = 7
+Defense = 2
+Speed = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anppu"]
+atlas = ExtResource("1_chiib")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0y6d"]
+atlas = ExtResource("1_chiib")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2itm"]
+atlas = ExtResource("1_chiib")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6gfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anppu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0y6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2itm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0y6d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BattleSlime" type="Node2D" node_paths=PackedStringArray("Sprite")]
+texture_filter = 1
+script = ExtResource("1_y1uib")
+Sprite = NodePath("AnimatedSprite2D")
+EnemyName = "Slime"
+Stats = SubResource("Resource_wsmx1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y6gfx")
+autoplay = "default"

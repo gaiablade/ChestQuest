@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2sc77guatcjf"]
+
+[ext_resource type="Script" path="res://scenes/scripts/ChoicesBox.cs" id="1_8krmd"]
+[ext_resource type="FontFile" uid="uid://dw47n0lc4vivt" path="res://assets/packs/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="2_h3sm4"]
+
+[sub_resource type="Theme" id="Theme_4co6t"]
+default_font = ExtResource("2_h3sm4")
+default_font_size = 32
+
+[node name="ChoicesBox" type="CanvasLayer"]
+script = ExtResource("1_8krmd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_4co6t")

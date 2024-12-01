@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2jjwh2vq5boa"]
+
+[ext_resource type="FontFile" uid="uid://dw47n0lc4vivt" path="res://assets/packs/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="1_kmuic"]
+
+[sub_resource type="Theme" id="Theme_s24c1"]
+default_font = ExtResource("1_kmuic")
+default_font_size = 32
+
+[node name="ThanksForPlayingScreen" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s24c1")
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PanelContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -16.0
+offset_right = 310.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you for playing the demo."
+horizontal_alignment = 2

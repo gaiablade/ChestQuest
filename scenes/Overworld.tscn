@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdpi1w2lkpcn3"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Overworld.cs" id="1_yumes"]
+[ext_resource type="PackedScene" uid="uid://881exn2qeo3b" path="res://maps/001 Start Town/Home1.tscn" id="2_mdequ"]
+[ext_resource type="Script" path="res://scripts/GameManager.cs" id="2_xpiod"]
+[ext_resource type="PackedScene" uid="uid://d17vkci1lx7fx" path="res://scenes/Player.tscn" id="4_uefag"]
+
+[node name="Overworld" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_yumes")
+DefaultMap = ExtResource("2_mdequ")
+
+[node name="Game Manager" type="Node" parent="."]
+script = ExtResource("2_xpiod")
+
+[node name="Home1" parent="." instance_placeholder="res://maps/001 Start Town/Home1.tscn"]
+
+[node name="Player" parent="." instance=ExtResource("4_uefag")]
+position = Vector2(216, 48)
+Speed = 96.0
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="Music Player" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="Sfx Player" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true

@@ -1,0 +1,128 @@
+[gd_scene load_steps=15 format=3 uid="uid://unw25u1c1ntc"]
+
+[ext_resource type="Script" path="res://scenes/scripts/DialogBox.cs" id="1_ddyxd"]
+[ext_resource type="AudioStream" uid="uid://dgobtwnlqbr2k" path="res://assets/packs/My Assets/00.wav" id="2_qjyrw"]
+[ext_resource type="FontFile" uid="uid://dw47n0lc4vivt" path="res://assets/packs/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="2_yk7nd"]
+[ext_resource type="Texture2D" uid="uid://p38oyocutspy" path="res://assets/packs/My Assets/DialogFinishedIndicator.png" id="4_m5era"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx5h0"]
+atlas = ExtResource("4_m5era")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teutc"]
+atlas = ExtResource("4_m5era")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq37q"]
+atlas = ExtResource("4_m5era")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjvmi"]
+atlas = ExtResource("4_m5era")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oeiw"]
+atlas = ExtResource("4_m5era")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcblv"]
+atlas = ExtResource("4_m5era")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbdur"]
+atlas = ExtResource("4_m5era")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkuu2"]
+atlas = ExtResource("4_m5era")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4jbh"]
+atlas = ExtResource("4_m5era")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3rc3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx5h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teutc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq37q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjvmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oeiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcblv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbdur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkuu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4jbh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="DialogBox" type="CanvasLayer"]
+script = ExtResource("1_ddyxd")
+CharacterSfx = ExtResource("2_qjyrw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0980392, 0.0980392, 0.0980392, 0.686275)
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_yk7nd")
+theme_override_font_sizes/normal_font_size = 32
+text = "Test Text"
+
+[node name="DialogOverIndicator" type="MarginContainer" parent="ColorRect/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect/MarginContainer/DialogOverIndicator"]
+texture_filter = 3
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_w3rc3")
+autoplay = "default"
+frame_progress = 0.889868
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
